@@ -1,0 +1,11 @@
+- name: Create OS Info File
+  hosts: all
+  tasks:
+  - name: Determine OS name
+    set_fact:
+      os_name: "{{ ansible_distribution }}"
+
+  - name: Create OS info file
+    ansible.builtin.copy:
+      content: "OS Name: {{ ansible_distribution }}\nDistribution Version: {{ ansible_distribution_version }}\n"
+      dest: "/home/user/{{ os_name }}.txt"
