@@ -1,5 +1,5 @@
 - name: Create OS Info File
-  hosts: all
+  hosts: target_hosts
   tasks:
   - name: Determine OS name
     set_fact:
