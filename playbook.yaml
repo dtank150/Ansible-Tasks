@@ -1,5 +1,6 @@
 - name: Create OS Info File
   hosts: localhost
+  # become: true
   tasks:
   - name: Determine OS name
     set_fact:
@@ -8,5 +9,5 @@
   - name: Create OS info file
     ansible.builtin.copy:
       content: "OS Name: {{ ansible_distribution }}\nDistribution Version: {{ ansible_distribution_version }}\n"
-      dest: "/home/einfochips/{{ os_name }}.txt"
+      dest: "/home/{{ ansible_env.USER }}/{{ os_name }}.txt"
 
