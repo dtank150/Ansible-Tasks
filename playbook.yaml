@@ -1,6 +1,5 @@
 - name: Create OS Info File
   hosts: localhost
-  # become: true
   tasks:
   - name: Determine OS name
     set_fact:
